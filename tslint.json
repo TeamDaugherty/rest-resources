@@ -3,9 +3,6 @@
     "tslint:latest",
     "tslint-eslint-rules"
   ],
-  "rulesDirectory": [
-    "node_modules/codelyzer"
-  ],
   "defaultSeverity": "error",
   "rules": {
     "arrow-parens": false,
@@ -93,7 +90,7 @@
     "no-var-keyword": true,
     "object-curly-spacing": [
       true,
-      "always"
+      "never"
     ],
     "object-literal-sort-keys": false,
     "one-line": [
@@ -114,7 +111,7 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "never"
     ],
     "trailing-comma": [
       true,

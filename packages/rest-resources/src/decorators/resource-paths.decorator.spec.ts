@@ -1,11 +1,13 @@
-import {Resource} from '../../src';
-import {ResourceKey} from '../../src';
-import {RESOURCE_PATHS_KEY, ResourcePaths} from '../../src/decorators/resource-paths.decorator';
+import {Resource} from './resource.decorator'
+import {ResourceKey} from './resource-key.decorator'
+import {RESOURCE_PATHS_KEY, ResourcePaths} from './resource-paths.decorator'
+import 'reflect-metadata'
+
 /* tslint:disable:max-classes-per-file */
 describe('ResourcePaths decorator', () => {
-  const api = '/pfmapi';
-  const resourceName = 'ACoolResourceName';
-  const resourceKey = 'someProp';
+  const api = '/pfmapi'
+  const resourceName = 'ACoolResourceName'
+  const resourceKey = 'someProp'
 
   @Resource('ACoolResourceName')
   @ResourcePaths({
@@ -20,7 +22,7 @@ describe('ResourcePaths decorator', () => {
   })
   class Model1 {
     @ResourceKey()
-    someProp: string;
+    someProp: string
   }
 
   it('sets resource paths in the metadata of a class with provided data', () => {
@@ -33,13 +35,13 @@ describe('ResourcePaths decorator', () => {
       update: `${api}/${resourceName}/:${resourceKey}`,
       modify: `${api}/${resourceName}/:${resourceKey}`,
       delete: `${api}/${resourceName}/:${resourceKey}`
-    });
-  });
+    })
+  })
 
   @Resource('coolResources')
   class Model2 {
     @ResourceKey()
-    someProp: string;
+    someProp: string
   }
 
   it('sets resource paths in the metadata of a class with defaults', () => {
@@ -52,6 +54,6 @@ describe('ResourcePaths decorator', () => {
     //   update: `${environment.pfmApiUrl}/coolResources/:someProp`,
     //   modify: `${environment.pfmApiUrl}/coolResources/:someProp`,
     //   delete: `${environment.pfmApiUrl}/coolResources/:someProp`
-    // });
-  });
-});
+    // })
+  })
+})
