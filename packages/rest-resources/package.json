@@ -1,21 +1,39 @@
 {
   "name": "@daugherty/rest-resources",
   "version": "0.1.0",
-  "license": "Apache 2.0",
-  "scripts": {},
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
+  "description": "Core library for utilizing rest-resources. This package must be included at a minimum. It will typically be used alongside an http implementation of one of its peer packages.",
+  "author": "Alex White <alex.white@daugherty.com>",
+  "homepage": "https://github.com/TeamDaugherty/rest-resources#readme",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
   "dependencies": {
     "core-js": "2.6.3",
-    "lodash": "4.17.11"
+    "lodash": "4.17.11",
+    "reflect-metadata": "0.1.13"
   },
   "devDependencies": {
-    "@types/lodash": "4.14.120",
-    "@types/node": "10.12.21",
-    "tslint": "5.12.1",
-    "tslint-eslint-rules": "5.4.0",
-    "typescript": "3.3.1"
+    "@types/lodash": "4.14.120"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamDaugherty/rest-resources.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/TeamDaugherty/rest-resources/issues"
   }
 }
