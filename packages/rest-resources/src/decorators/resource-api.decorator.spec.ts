@@ -2,6 +2,7 @@ import {Resource} from './resource.decorator'
 import {ResourceKey} from './resource-key.decorator'
 import {RESOURCE_API_KEY, ResourceApi} from './resource-api.decorator'
 import 'reflect-metadata'
+import {ResourceConfig} from '../config/ResourceConfig'
 
 /* tslint:disable:max-classes-per-file */
 describe('ResourceApi Decorator', () => {
@@ -23,6 +24,6 @@ describe('ResourceApi Decorator', () => {
   }
 
   it('adds default resource api in the metadata of a class when one is not provided', () => {
-    // expect(Reflect.getMetadata(RESOURCE_API_KEY, Model2)).toEqual(environment.pfmApiUrl)
+    expect(Reflect.getMetadata(RESOURCE_API_KEY, Model2)).toEqual(ResourceConfig.defaultApiRoot)
   })
 })

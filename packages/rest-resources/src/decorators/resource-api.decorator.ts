@@ -1,3 +1,5 @@
+import {ResourceConfig} from '../config/ResourceConfig'
+
 const RESOURCE_API_KEY = 'RESOURCE_API_KEY'
 
 function ResourceApi(apiUrl: string) {
@@ -7,7 +9,7 @@ function ResourceApi(apiUrl: string) {
 }
 
 function applyDefaultResourceApi(target: any) {
-  ResourceApi('TODO-DEFAULT-API')(target)
+  ResourceApi(ResourceConfig.defaultApiRoot)(target)
 }
 
 export {

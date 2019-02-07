@@ -1,5 +1,5 @@
 import {applyDefaultResourceApi, RESOURCE_API_KEY} from './resource-api.decorator'
-import {IResourcePaths} from '../IResourcePaths'
+import {IResourcePaths} from '../interfaces/IResourcePaths'
 import {RESOURCE_KEY_KEY} from './resource-key.decorator'
 
 const RESOURCE_PATHS_KEY = 'RESOURCE_PATHS_KEY'
