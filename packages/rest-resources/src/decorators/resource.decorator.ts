@@ -1,5 +1,6 @@
 import {applyDefaultResourcePaths, RESOURCE_PATHS_KEY} from './resource-paths.decorator'
 import {applyDefaultResourceApi, RESOURCE_API_KEY} from './resource-api.decorator'
+import {applyDefaultResourceAdapter, RESOURCE_ADAPTER_KEY} from './resource-adapter.decorator'
 
 const RESOURCE_NAME_KEY = 'RESOURCE_NAME_KEY'
 
@@ -15,6 +16,12 @@ function Resource(resourceName: string) {
     // Define default paths if not already defined by @ResourcePaths
     if (!Reflect.getMetadata(RESOURCE_PATHS_KEY, target)) {
       applyDefaultResourcePaths(resourceName, target)
+    }
+
+    // Use default adapter if not specified by @ResourceAdapter
+    // Default adapter MUST be specified via ResourceConfig.defaultResourceAdapter
+    if (!Reflect.getMetadata(RESOURCE_ADAPTER_KEY, target)) {
+      applyDefaultResourceAdapter(target)
     }
   }
 }
