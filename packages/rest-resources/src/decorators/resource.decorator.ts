@@ -1,6 +1,7 @@
-import {applyDefaultResourcePaths, RESOURCE_PATHS_KEY} from './resource-paths.decorator'
-import {applyDefaultResourceApi, RESOURCE_API_KEY} from './resource-api.decorator'
-import {applyDefaultResourceAdapter, RESOURCE_ADAPTER_KEY} from './resource-adapter.decorator'
+import {applyDefaultResourcePaths} from './resource-paths.decorator'
+import {applyDefaultResourceApi} from './resource-api.decorator'
+import {applyDefaultResourceAdapter} from './resource-adapter.decorator'
+import {getResourceAdapter, getResourceApi, getResourcePaths} from '../resource.util'
 
 const RESOURCE_NAME_KEY = 'RESOURCE_NAME_KEY'
 
@@ -9,18 +10,18 @@ function Resource(resourceName: string) {
     Reflect.defineMetadata(RESOURCE_NAME_KEY, resourceName, target)
 
     // Define default api path if not already defined by @ResourceApi
-    if (!Reflect.getMetadata(RESOURCE_API_KEY, target)) {
+    if (!getResourceApi(target)) {
       applyDefaultResourceApi(target)
     }
 
     // Define default paths if not already defined by @ResourcePaths
-    if (!Reflect.getMetadata(RESOURCE_PATHS_KEY, target)) {
+    if (!getResourcePaths(target)) {
       applyDefaultResourcePaths(resourceName, target)
     }
 
     // Use default adapter if not specified by @ResourceAdapter
     // Default adapter MUST be specified via ResourceConfig.defaultResourceAdapter
-    if (!Reflect.getMetadata(RESOURCE_ADAPTER_KEY, target)) {
+    if (!getResourceAdapter(target)) {
       applyDefaultResourceAdapter(target)
     }
   }

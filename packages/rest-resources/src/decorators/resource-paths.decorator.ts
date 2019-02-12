@@ -1,6 +1,7 @@
 import {applyDefaultResourceApi, RESOURCE_API_KEY} from './resource-api.decorator'
 import {IResourcePaths} from '../interfaces/IResourcePaths'
 import {RESOURCE_KEY_KEY} from './resource-key.decorator'
+import {getResourceApi, getResourceKey} from '../resource.util'
 
 const RESOURCE_PATHS_KEY = 'RESOURCE_PATHS_KEY'
 
@@ -15,11 +16,11 @@ function applyDefaultResourcePaths(resourceName: string, target: any): void {
 }
 
 function getDefaultResourcePaths(resourceName: string, target: any): IResourcePaths {
-  if (!Reflect.getMetadata(RESOURCE_API_KEY, target)) {
+  if (!getResourceApi(target)) {
     applyDefaultResourceApi(target)
   }
 
-  if (!Reflect.getMetadata(RESOURCE_KEY_KEY, target)) {
+  if (!getResourceKey(target)) {
     throw new Error('@ResourceKey() must be provided on the property which the API considers as the "key"')
   }
 
