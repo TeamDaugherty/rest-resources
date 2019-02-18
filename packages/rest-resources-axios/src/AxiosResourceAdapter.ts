@@ -1,37 +1,59 @@
-import {IResourceAdapter, IResourceParams} from '@daugherty/rest-resources'
+import {getResourceKey, getResourcePaths, IResourceAdapter, IResourceParams} from '@daugherty/rest-resources'
+import axios, {AxiosPromise} from 'axios'
 
 export class AxiosResourceAdapter<R> implements IResourceAdapter<R> {
-  // TODO: Need type info for getting metadata
+  constructor(protected ResourceType: new() => R) {
 
-  create(resource: R): any {
-    // TODO
   }
 
-  delete(resourceKey?: any): any {
-    // TODO
+  create(resource: R): AxiosPromise<any> {
+    return axios.post(getResourcePaths(this.ResourceType).create, resource)
   }
 
-  findAll(): any {
-    // TODO
+  delete(resourceKey: any): AxiosPromise<any> {
+    const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).delete, resourceKey)
+    return axios.delete(url)
   }
 
-  findByKey(resourceKey: any): any {
-    // TODO
+  findAll(): AxiosPromise<any> {
+    return axios.get(getResourcePaths(this.ResourceType).findAll)
   }
 
-  modify(resource: Partial<R>): any {
-    // TODO
+  findByKey(resourceKey: any): AxiosPromise<any> {
+    const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).findByKey, resourceKey)
+    return axios.get(url)
   }
 
-  query(params?: IResourceParams): any {
-    // TODO
+  modify(resourceKey: any, resource: Partial<R>): AxiosPromise<any> {
+    const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).modify, resourceKey)
+    return axios.patch(url, resource)
   }
 
-  queryOne(params?: IResourceParams): any {
-    // TODO
+  query(params?: IResourceParams): AxiosPromise<any> {
+    return axios.get(getResourcePaths(this.ResourceType).query, {params})
   }
 
-  update(resource: R): any {
-    // TODO
+  queryOne(params?: IResourceParams): AxiosPromise<any> {
+    return axios.get(getResourcePaths(this.ResourceType).queryOne, {params})
+  }
+
+  update(resource: R): AxiosPromise<any> {
+    const key = this.getResourceKey(resource)
+    const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).update, key)
+    return axios.put(url, resource)
+  }
+
+  protected getResourceKey(resource: Partial<R>): string {
+    const resourceKey = getResourceKey(this.ResourceType)
+    const key: string = (resource as any)[resourceKey] as string
+    if (!key) {
+      throw new Error(`The value of the resource key property '${resourceKey}' was not provided on the modified resource payload`)
+    }
+
+    return key
+  }
+
+  protected replaceUriResourceKeySegment(url: string, resourceKey: any): string {
+    return url.replace(`:${getResourceKey(this.ResourceType)}`, resourceKey)
   }
 }

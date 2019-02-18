@@ -2,14 +2,14 @@ import {IResourceAdapter, ResourceConfig} from '..'
 
 const RESOURCE_ADAPTER_KEY = 'RESOURCE_ADAPTER_KEY'
 
-function ResourceAdapter(resourceAdapter: new() => IResourceAdapter<any>) {
-  return (target: any) => {
-    Reflect.defineMetadata(RESOURCE_ADAPTER_KEY, resourceAdapter, target)
+function ResourceAdapter<R>(resourceAdapter: IResourceAdapter<R>) {
+  return (ResourceType: new() => R) => {
+    Reflect.defineMetadata(RESOURCE_ADAPTER_KEY, resourceAdapter, ResourceType)
   }
 }
 
-function applyDefaultResourceAdapter(target: any) {
-  ResourceAdapter(ResourceConfig.defaultResourceAdapter)(target)
+function applyDefaultResourceAdapter<R>(ResourceType: new() => R) {
+  ResourceAdapter(ResourceConfig.defaultResourceAdapter)(ResourceType)
 }
 
 export {

@@ -5,27 +5,29 @@ import {getResourceApi, getResourceKey} from '../resource.util'
 
 const RESOURCE_PATHS_KEY = 'RESOURCE_PATHS_KEY'
 
-function ResourcePaths(paths: IResourcePaths) {
-  return (target: any) => {
-    Reflect.defineMetadata(RESOURCE_PATHS_KEY, paths, target)
+function ResourcePaths<R>(paths: IResourcePaths) {
+  return (ResourceType: new() => R) => {
+    Reflect.defineMetadata(RESOURCE_PATHS_KEY, paths, ResourceType)
   }
 }
+
+// TODO: Handle partial overrides (merge provided with defaults)
 
 function applyDefaultResourcePaths(resourceName: string, target: any): void {
   ResourcePaths(getDefaultResourcePaths(resourceName, target))(target)
 }
 
-function getDefaultResourcePaths(resourceName: string, target: any): IResourcePaths {
-  if (!getResourceApi(target)) {
-    applyDefaultResourceApi(target)
+function getDefaultResourcePaths<R>(resourceName: string, ResourceType: new() => R): IResourcePaths {
+  if (!getResourceApi(ResourceType)) {
+    applyDefaultResourceApi(ResourceType)
   }
 
-  if (!getResourceKey(target)) {
+  if (!getResourceKey(ResourceType)) {
     throw new Error('@ResourceKey() must be provided on the property which the API considers as the "key"')
   }
 
-  const api = Reflect.getMetadata(RESOURCE_API_KEY, target)
-  const resourceKey = Reflect.getMetadata(RESOURCE_KEY_KEY, target)
+  const api = Reflect.getMetadata(RESOURCE_API_KEY, ResourceType)
+  const resourceKey = Reflect.getMetadata(RESOURCE_KEY_KEY, ResourceType)
   return {
     findAll: `${api}/${resourceName}`,
     findByKey: `${api}/${resourceName}/:${resourceKey}`,

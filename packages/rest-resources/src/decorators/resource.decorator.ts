@@ -5,24 +5,24 @@ import {getResourceAdapter, getResourceApi, getResourcePaths} from '../resource.
 
 const RESOURCE_NAME_KEY = 'RESOURCE_NAME_KEY'
 
-function Resource(resourceName: string) {
-  return (target: any) => {
-    Reflect.defineMetadata(RESOURCE_NAME_KEY, resourceName, target)
+function Resource<R>(resourceName: string) {
+  return (ResourceType: new() => R) => {
+    Reflect.defineMetadata(RESOURCE_NAME_KEY, resourceName, ResourceType)
 
     // Define default api path if not already defined by @ResourceApi
-    if (!getResourceApi(target)) {
-      applyDefaultResourceApi(target)
+    if (!getResourceApi(ResourceType)) {
+      applyDefaultResourceApi(ResourceType)
     }
 
     // Define default paths if not already defined by @ResourcePaths
-    if (!getResourcePaths(target)) {
-      applyDefaultResourcePaths(resourceName, target)
+    if (!getResourcePaths(ResourceType)) {
+      applyDefaultResourcePaths(resourceName, ResourceType)
     }
 
     // Use default adapter if not specified by @ResourceAdapter
     // Default adapter MUST be specified via ResourceConfig.defaultResourceAdapter
-    if (!getResourceAdapter(target)) {
-      applyDefaultResourceAdapter(target)
+    if (!getResourceAdapter(ResourceType)) {
+      applyDefaultResourceAdapter(ResourceType)
     }
   }
 }

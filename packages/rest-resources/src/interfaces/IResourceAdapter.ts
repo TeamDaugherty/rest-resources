@@ -8,6 +8,6 @@ export interface IResourceAdapter<R> {
   queryOne(params?: IResourceParams): any // When we don't know the id but we know the endpoint will give us a single resource
   create(resource: R): any // Creates a resource
   update(resource: R): any // Updates a resource
-  modify(resource: Partial<R>): any // Modifies (patches) a resource
-  delete(resourceKey?: any): any // Delete by key or just delete the one when resource is always just a single resource
+  modify(resourceKey: any, resource: Partial<R>): any // Modifies (patches) a resource
+  delete(resourceKey: any): any // Delete by key
 }

@@ -6,23 +6,23 @@ import {IResourcePaths} from './interfaces/IResourcePaths'
 import {IResourceAdapter} from './interfaces/IResourceAdapter'
 import {RESOURCE_ADAPTER_KEY} from './decorators/resource-adapter.decorator'
 
-function getResourceName<T>(ResourceType: new() => T): string {
+function getResourceName<R>(ResourceType: new() => R): string {
   return Reflect.getMetadata(RESOURCE_NAME_KEY, ResourceType)
 }
 
-function getResourceKey<T>(ResourceType: new() => T): string {
+function getResourceKey<R>(ResourceType: new() => R): string {
   return Reflect.getMetadata(RESOURCE_KEY_KEY, ResourceType)
 }
 
-function getResourcePaths<T>(ResourceType: new() => T): IResourcePaths {
+function getResourcePaths<R>(ResourceType: new() => R): IResourcePaths {
   return Reflect.getMetadata(RESOURCE_PATHS_KEY, ResourceType)
 }
 
-function getResourceApi<T>(ResourceType: new() => T): string {
+function getResourceApi<R>(ResourceType: new() => R): string {
   return Reflect.getMetadata(RESOURCE_API_KEY, ResourceType)
 }
 
-function getResourceAdapter<T>(ResourceType: new() => T): IResourceAdapter<T> {
+function getResourceAdapter<R>(ResourceType: new() => R): IResourceAdapter<R> {
   return Reflect.getMetadata(RESOURCE_ADAPTER_KEY, ResourceType)
 }
 

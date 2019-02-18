@@ -2,14 +2,14 @@ import {ResourceConfig} from '../config/ResourceConfig'
 
 const RESOURCE_API_KEY = 'RESOURCE_API_KEY'
 
-function ResourceApi(apiUrl: string) {
-  return (target: any) => {
-    Reflect.defineMetadata(RESOURCE_API_KEY, apiUrl, target)
+function ResourceApi<R>(apiUrl: string) {
+  return (ResourceType: new() => R) => {
+    Reflect.defineMetadata(RESOURCE_API_KEY, apiUrl, ResourceType)
   }
 }
 
-function applyDefaultResourceApi(target: any) {
-  ResourceApi(ResourceConfig.defaultApiRoot)(target)
+function applyDefaultResourceApi<R>(ResourceType: new() => R) {
+  ResourceApi(ResourceConfig.defaultApiRoot)(ResourceType)
 }
 
 export {
