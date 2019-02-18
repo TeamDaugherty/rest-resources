@@ -1,0 +1,30 @@
+{
+  "name": "examples",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Example usages of rest-resources",
+  "author": "Alex White <alex.white@daugherty.com>",
+  "homepage": "https://github.com/TeamDaugherty/rest-resources#readme",
+  "license": "Apache-2.0",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "@daugherty/rest-resources": "0.1.0",
+    "@daugherty/rest-resources-axios": "0.1.0"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeamDaugherty/rest-resources.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/TeamDaugherty/rest-resources/issues"
+  }
+}
