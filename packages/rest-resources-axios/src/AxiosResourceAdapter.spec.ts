@@ -22,7 +22,7 @@ describe('AxiosResourceAdapter', () => {
   }
 
   beforeEach(() => {
-    Adapter = new AxiosResourceAdapter(TestModel)
+    Adapter = new AxiosResourceAdapter(axios, TestModel)
   })
 
   it('makes a POST request to create a resource', () => {

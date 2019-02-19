@@ -12,7 +12,9 @@
   },
   "dependencies": {
     "@daugherty/rest-resources": "0.1.0",
-    "@daugherty/rest-resources-axios": "0.1.0"
+    "@daugherty/rest-resources-axios": "0.1.0",
+    "axios": "0.18.0",
+    "axios-mock-adapter": "1.16.0"
   },
   "files": [
     "lib"
@@ -22,6 +24,7 @@
     "url": "git+https://github.com/TeamDaugherty/rest-resources.git"
   },
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "bugs": {

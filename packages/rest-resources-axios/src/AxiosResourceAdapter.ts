@@ -1,46 +1,46 @@
 import {getResourceKey, getResourcePaths, IResourceAdapter, IResourceParams} from '@daugherty/rest-resources'
-import axios, {AxiosPromise} from 'axios'
+import {AxiosInstance, AxiosPromise} from 'axios'
 
 export class AxiosResourceAdapter<R> implements IResourceAdapter<R> {
-  constructor(protected ResourceType: new() => R) {
+  constructor(protected readonly axios: AxiosInstance, protected ResourceType: new() => R) {
 
   }
 
   create(resource: R): AxiosPromise<any> {
-    return axios.post(getResourcePaths(this.ResourceType).create, resource)
+    return this.axios.post(getResourcePaths(this.ResourceType).create, resource)
   }
 
   delete(resourceKey: any): AxiosPromise<any> {
     const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).delete, resourceKey)
-    return axios.delete(url)
+    return this.axios.delete(url)
   }
 
   findAll(): AxiosPromise<any> {
-    return axios.get(getResourcePaths(this.ResourceType).findAll)
+    return this.axios.get(getResourcePaths(this.ResourceType).findAll)
   }
 
   findByKey(resourceKey: any): AxiosPromise<any> {
     const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).findByKey, resourceKey)
-    return axios.get(url)
+    return this.axios.get(url)
   }
 
   modify(resourceKey: any, resource: Partial<R>): AxiosPromise<any> {
     const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).modify, resourceKey)
-    return axios.patch(url, resource)
+    return this.axios.patch(url, resource)
   }
 
   query(params?: IResourceParams): AxiosPromise<any> {
-    return axios.get(getResourcePaths(this.ResourceType).query, {params})
+    return this.axios.get(getResourcePaths(this.ResourceType).query, {params})
   }
 
   queryOne(params?: IResourceParams): AxiosPromise<any> {
-    return axios.get(getResourcePaths(this.ResourceType).queryOne, {params})
+    return this.axios.get(getResourcePaths(this.ResourceType).queryOne, {params})
   }
 
   update(resource: R): AxiosPromise<any> {
     const key = this.getResourceKey(resource)
     const url = this.replaceUriResourceKeySegment(getResourcePaths(this.ResourceType).update, key)
-    return axios.put(url, resource)
+    return this.axios.put(url, resource)
   }
 
   protected getResourceKey(resource: Partial<R>): string {

@@ -1,5 +1,6 @@
 /* tslint:disable:no-empty-interface */
-export interface IResourceParams { }
+export interface IResourceParams {
+}
 
 export interface IResourceAdapter<R> {
   findAll(): any // Gets all of the resource
