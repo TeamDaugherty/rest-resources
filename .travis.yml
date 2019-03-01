@@ -8,8 +8,8 @@ cache: npm
 install:
   - npm install -g lerna
   - npm install
-  - lerna bootstrap
 
 script:
-  - npm test
   - lerna run build
+  - lerna bootstrap
+  - npm test
