@@ -6,9 +6,11 @@ node_js:
 dist: trusty
 
 install:
+  - npm install -g lerna
   - npm install
 
 cache: npm
 
 script:
+  - lerna bootstrap
   - npm test
