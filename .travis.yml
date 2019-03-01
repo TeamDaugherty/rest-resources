@@ -5,6 +5,9 @@ node_js:
 
 dist: trusty
 
+install:
+  - npm install
+
 cache: npm
 
 script:
