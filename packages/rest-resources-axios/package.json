@@ -23,11 +23,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies":  {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "@daugherty/rest-resources": "0.1.0"
   },
   "peerDependencies": {
-    "axios": "0.18.x"
+    "axios": "0.19.x"
   },
   "bugs": {
     "url": "https://github.com/TeamDaugherty/rest-resources/issues"
