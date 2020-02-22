@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: 'Rest Resources', // Title for your website.
-  tagline: 'A website for testing',
+  tagline: 'The following is a placeholder - documentation is WIP. Check back soon!',
   url: 'https://TeamDaugherty.github.io', // Your website URL
   baseUrl: '/rest-resources/', // Base URL for your project */
 

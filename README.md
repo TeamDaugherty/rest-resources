@@ -5,6 +5,11 @@ A framework agnostic pattern for retrieving RESTful resources with a few decorat
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
+## Usage
+
+For instructions on how to use rest-resources, see the [documentation](https://teamdaugherty.github.io/rest-resources/)
+
+
 
 ## Getting Started
 
