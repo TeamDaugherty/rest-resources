@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "publish": "lerna run build && lerna publish",
-    "test": "jest --config=jest.config.js"
+    "test": "jest --config=jest.config.js",
+    "lerna": "lerna"
   },
   "devDependencies": {
     "@types/jest": "24.0.18",
