@@ -9,20 +9,13 @@
 // site configuration options.
 
 // List of projects/orgs using your project for the users page.
-const users = [
-  {
-    caption: 'User1',
-    // You will need to prepend the image path with your baseUrl
-    // if it is not '/', like: '/test-site/img/image.jpg'.
-    image: '/img/undraw_open_source.svg',
-    infoLink: 'https://www.facebook.com',
-    pinned: true,
-  },
-];
+const users = []
+
+const repoUrl = 'https://github.com/TeamDaugherty/rest-resources'
 
 const siteConfig = {
   title: 'Rest Resources', // Title for your website.
-  tagline: 'The following is a placeholder - documentation is WIP. Check back soon!',
+  tagline: 'A framework-agnostic pattern for integrating with RESTful APIs without boilerplate.',
   url: 'https://TeamDaugherty.github.io', // Your website URL
   baseUrl: '/rest-resources/', // Base URL for your project */
 
@@ -32,27 +25,26 @@ const siteConfig = {
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    {doc: 'doc1', label: 'Docs'},
-    {doc: 'doc4', label: 'API'},
-    {page: 'help', label: 'Help'},
+    {doc: 'install', label: 'Docs'},
+    {doc: 'examples/examples-basic', label: 'Examples'},
+    {href: repoUrl, label: "GitHub"},
   ],
 
   // If you have users set above, you add it here:
   users,
 
   /* path to images for header/footer */
-  headerIcon: 'img/favicon.ico',
+  headerIcon: 'img/team-daugherty.png',
   footerIcon: 'img/favicon.ico',
   favicon: 'img/favicon.ico',
 
   /* Colors for website */
   colors: {
-    primaryColor: '#522a5c',
-    secondaryColor: '#391d40',
+    primaryColor: '#558c40', // Dark Green
+    secondaryColor: '#b5cf83', // light Green
   },
 
   /* Custom fonts for website */
-  /*
   fonts: {
     myFont: [
       "Times New Roman",
@@ -63,7 +55,6 @@ const siteConfig = {
       "system-ui"
     ]
   },
-  */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
   copyright: `Copyright © ${new Date().getFullYear()} Daugherty Business Solutions`,
@@ -81,9 +72,7 @@ const siteConfig = {
   // No .html extensions for paths.
   cleanUrl: true,
 
-  // Open Graph and Twitter card images.
-  ogImage: 'img/undraw_online.svg',
-  twitterImage: 'img/undraw_tweetstorm.svg',
+  scrollToTop: true,
 
   // For sites with a sizable amount of content, set collapsible to true.
   // Expand/collapse the links and subcategories under categories.
@@ -97,7 +86,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
-};
+  repoUrl,
+}
 
-module.exports = siteConfig;
+module.exports = siteConfig

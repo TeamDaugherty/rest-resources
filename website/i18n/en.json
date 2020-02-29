@@ -3,34 +3,29 @@
   "localized-strings": {
     "next": "Next",
     "previous": "Previous",
-    "tagline": "A website for testing",
+    "tagline": "A framework-agnostic pattern for integrating with RESTful APIs without boilerplate.",
     "docs": {
-      "doc1": {
-        "title": "Latin-ish",
-        "sidebar_label": "Example Page"
+      "customize": {
+        "title": "Customize"
       },
-      "doc2": {
-        "title": "document number 2"
+      "examples/examples-basic": {
+        "title": "Basic"
       },
-      "doc3": {
-        "title": "This is document number 3"
+      "install": {
+        "title": "Install"
       },
-      "doc4": {
-        "title": "Other Document"
-      },
-      "doc5": {
-        "title": "Fifth Document"
+      "setup": {
+        "title": "Setup"
       }
     },
     "links": {
       "Docs": "Docs",
-      "API": "API",
-      "Help": "Help"
+      "Examples": "Examples",
+      "GitHub": "GitHub"
     },
     "categories": {
-      "Docusaurus": "Docusaurus",
-      "First Category": "First Category",
-      "Second Category": "Second Category"
+      "Documentation": "Documentation",
+      "Examples": "Examples"
     }
   },
   "pages-strings": {
