@@ -2,13 +2,21 @@
   "docs": {
     "Documentation": [
       "install",
-      "setup",
+      {
+        "type": "subcategory",
+        "label": "Configure",
+        "ids": [
+          "config/resources",
+          "config/adapters",
+          "config/per-resource-adapters"
+        ]
+      },
       "customize"
     ]
   },
   "examples": {
     "Examples": [
-      "examples/examples-basic"
+      "examples/basic"
     ]
   }
 }

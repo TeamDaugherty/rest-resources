@@ -7,8 +7,6 @@ export function Resources<R>(ResourceType: new() => R): IResourceAdapter<R> {
 
   if (!adapter) {
     adapter = new ResourceConfig.defaultResourceAdapter(ResourceType)
-    // tslint:disable-next-line:no-console
-    console.log(adapter)
     setResourceAdapter(ResourceType, adapter)
   }
 

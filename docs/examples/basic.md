@@ -1,5 +1,5 @@
 ---
-id: examples-basic
+id: basic
 title: Basic
 ---
 

@@ -14,7 +14,7 @@ const users = []
 const repoUrl = 'https://github.com/TeamDaugherty/rest-resources'
 
 const siteConfig = {
-  title: 'Rest Resources', // Title for your website.
+  title: 'REST Resources', // Title for your website.
   tagline: 'A framework-agnostic pattern for integrating with RESTful APIs without boilerplate.',
   url: 'https://TeamDaugherty.github.io', // Your website URL
   baseUrl: '/rest-resources/', // Base URL for your project */
@@ -26,7 +26,7 @@ const siteConfig = {
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
     {doc: 'install', label: 'Docs'},
-    {doc: 'examples/examples-basic', label: 'Examples'},
+    {doc: 'examples/basic', label: 'Examples'},
     {href: repoUrl, label: "GitHub"},
   ],
 

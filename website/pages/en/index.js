@@ -58,7 +58,7 @@ class HomeSplash extends React.Component {
           <ProjectTitle tagline={siteConfig.tagline} title={siteConfig.title} />
           <PromoSection>
             <Button href={docUrl('install')}>Docs</Button>
-            <Button href={docUrl('examples/examples-basic')}>Examples</Button>
+            <Button href={docUrl('examples/basic')}>Examples</Button>
           </PromoSection>
         </div>
       </SplashContainer>
@@ -89,7 +89,7 @@ class Index extends React.Component {
         {[
           {
             title: 'Consistency',
-            content: 'Following a pattern is critical to readable and maintainable code. This is especially true for teams with varied experience. Rest Resources\' primary goal is to provide a consistent pattern for service calls.',
+            content: 'Following a pattern is critical to readable and maintainable code. This is especially true for teams with varied experience. REST Resources\' primary goal is to provide a consistent pattern for service calls.',
             image: `${baseUrl}img/undraw_code_review_l1q9.svg`,
             imageAlign: 'left',
           },
@@ -102,7 +102,7 @@ class Index extends React.Component {
         {[
           {
             title: 'Developer Productivity',
-            content: 'Rest Resources allows developers to write less duplicative and mundane code to do basic API requests. Especially when interacting with a well-formed, consistent RESTful API. Rest Resources provides a convention for this interaction so developers can focus on more specific application needs.',
+            content: 'REST Resources allows developers to write less duplicative and mundane code to do basic API requests. Especially when interacting with a well-formed, consistent RESTful API. Rest Resources provides a convention for this interaction so developers can focus on more specific application needs.',
             image: `${baseUrl}img/undraw_dev_productivity_umsq.svg`,
             imageAlign: 'right',
           },

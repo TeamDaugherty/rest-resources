@@ -5,17 +5,23 @@
     "previous": "Previous",
     "tagline": "A framework-agnostic pattern for integrating with RESTful APIs without boilerplate.",
     "docs": {
+      "config/adapters": {
+        "title": "Adapters"
+      },
+      "config/per-resource-adapters": {
+        "title": "Per-Resource Adapters"
+      },
+      "config/resources": {
+        "title": "Resources"
+      },
       "customize": {
         "title": "Customize"
       },
-      "examples/examples-basic": {
+      "examples/basic": {
         "title": "Basic"
       },
       "install": {
         "title": "Install"
-      },
-      "setup": {
-        "title": "Setup"
       }
     },
     "links": {
