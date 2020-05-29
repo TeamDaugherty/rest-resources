@@ -14,24 +14,16 @@
       "config/resources": {
         "title": "Resources"
       },
-      "customize": {
-        "title": "Customize"
-      },
-      "examples/basic": {
-        "title": "Basic"
-      },
       "install": {
         "title": "Install"
       }
     },
     "links": {
       "Docs": "Docs",
-      "Examples": "Examples",
       "GitHub": "GitHub"
     },
     "categories": {
-      "Documentation": "Documentation",
-      "Examples": "Examples"
+      "Documentation": "Documentation"
     }
   },
   "pages-strings": {

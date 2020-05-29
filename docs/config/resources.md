@@ -139,9 +139,12 @@ class Employee {
 
 ```typescript
 import {Resources} from '@daugherty/rest-resources'
-import Employee from 'resources/Employee'
+import Employee from './resources/Employee'
 
 (async function() {
   const employees = await Resources(Employee).findAll()
 })()
 ```
+
+> NOTE: Ideally the `Resources` function would not be necessary, however, due to a limitation of TypeScript not allowing the class/prototype definition to be changed by a Decorator, an alternative approach was needed. This issue is discussed [here](https://github.com/Microsoft/TypeScript/issues/4881)
+

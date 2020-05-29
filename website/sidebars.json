@@ -10,13 +10,7 @@
           "config/adapters",
           "config/per-resource-adapters"
         ]
-      },
-      "customize"
-    ]
-  },
-  "examples": {
-    "Examples": [
-      "examples/basic"
+      }
     ]
   }
 }
