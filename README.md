@@ -15,7 +15,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Before running, you will need to install the following:
 
-* [Node v10+](https://nodejs.org)
+* [Node v10](https://nodejs.org)
 
 ### Installing
 

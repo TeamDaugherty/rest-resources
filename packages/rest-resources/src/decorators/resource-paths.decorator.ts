@@ -5,7 +5,7 @@ import {getResourceApi, getResourceKey} from '../resource.util'
 
 const RESOURCE_PATHS_KEY = 'RESOURCE_PATHS_KEY'
 
-function ResourcePaths<R>(paths: IResourcePaths) {
+function ResourcePaths<R>(paths: Partial<IResourcePaths>) {
   return (ResourceType: new() => R) => {
     Reflect.defineMetadata(RESOURCE_PATHS_KEY, paths, ResourceType)
   }
